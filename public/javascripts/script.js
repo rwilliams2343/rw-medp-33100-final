@@ -218,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function deleteEntry(entryID) {
+        console.log('deleting entry with id:', entryID);
         fetch('/entries/' + entryID, {
             method: 'DELETE',
             // headers: {
