@@ -55,7 +55,8 @@ router.post('/', async function (req, res) {
             author: req.body.author,
             platform: req.body.platform,
             entry_text: req.body.entry_text,
-            date_created: new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 })
+            date_created: new Date()
+            //new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 })
         }
         await db.collection('entries')
             .insertOne(newEntry)
@@ -63,6 +64,7 @@ router.post('/', async function (req, res) {
 
         res.send('entry successfully added!')
     } catch (error) {
+        res.status(500).send('error!')
         console.log('error when adding new entry!')
     }
 })
@@ -78,11 +80,13 @@ router.put('/', async function(req, res){
                     game_name: req.body.game_name,
                     image_url: req.body.image_url,
                     entry_text: req.body.entry_text,
-                    date_created: new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 })
+                    date_created: new Date()
+                    //new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 })
                 }}
             )
-        console.log(test)
+        //console.log(test)
     } catch (error) {
+        res.status(500).send('error!')
         console.log('error when updating!!!')
     }
 })
@@ -93,6 +97,7 @@ router.delete('/:id', async function (req, res){
         await db.collection('entries')
             .deleteOne({_id: new ObjectId(req.params.id)})
     } catch (error) {
+        res.status(500).send('error!')
         console.log('error when deleting data!!!')
     }
 })
