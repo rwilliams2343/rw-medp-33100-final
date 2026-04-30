@@ -64,6 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
             entry_text: formData.get('bodyInput')
         }
 
+        const deleteButton = entry.querySelector('.delete_button')
+        deleteButton.addEventListener('click', async () => {
+            await deleteEntry(entry.id)
+            location.reload();
+        })
+
         fetch('/entries', {
             method: 'POST',
             headers: {
@@ -186,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="entry_text">${entry.entry_text}</p>
                 <button class="edit_button">Edit</button>
             `;
-            container.appendChild(entryElement);
+            container.prepend(entryElement);
         })
     }
 
