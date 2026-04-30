@@ -192,6 +192,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="entry_text">${entry.entry_text}</p>
                 <button class="edit_button">Edit</button>
             `;
+
+            const deleteButton = entryElement.querySelector('.delete_button')
+            deleteButton.addEventListener('click', async () => {
+            console.log('delete clicked!')
+            await deleteEntry(entryElement.id)
+            location.reload();
+        })
+            
             container.prepend(entryElement);
         })
     }
