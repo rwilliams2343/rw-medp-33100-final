@@ -96,6 +96,7 @@ router.delete('/:id', async function (req, res){
         const db = req.app.locals.db;
         await db.collection('entries')
             .deleteOne({_id: new ObjectId(req.params.id)})
+        res.send('entry deleted!')
     } catch (error) {
         res.status(500).send('error when deleting data!!!')
         console.log('error when deleting data!!!')
