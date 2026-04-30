@@ -64,18 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
             entry_text: formData.get('bodyInput')
         }
 
-        const deleteButton = entry.querySelector('.delete_button')
-        deleteButton.addEventListener('click', async () => {
-            await deleteEntry(entry.id)
-            location.reload();
-        })
-
         fetch('/entries', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formDataObject)
+        }).then(() => {
+        location.reload();
         })
     })
 
