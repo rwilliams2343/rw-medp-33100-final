@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //create a new entry
     const newEntryForm = document.querySelector('#new-entry')
-    newEntryForm.addEventListener('submit', () => {
-
+    newEntryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
         const formData = new FormData(newEntryForm);
 
         const formDataObject = {
