@@ -64,7 +64,7 @@ router.post('/', async function (req, res) {
 
         res.send('entry successfully added!')
     } catch (error) {
-        res.status(500).send('error!')
+        res.status(500).send('error when adding new entry!')
         console.log('error when adding new entry!')
     }
 })
@@ -86,7 +86,7 @@ router.put('/', async function(req, res){
             )
         //console.log(test)
     } catch (error) {
-        res.status(500).send('error!')
+        res.status(500).send('error when updating!!!')
         console.log('error when updating!!!')
     }
 })
@@ -97,7 +97,7 @@ router.delete('/:id', async function (req, res){
         await db.collection('entries')
             .deleteOne({_id: new ObjectId(req.params.id)})
     } catch (error) {
-        res.status(500).send('error!')
+        res.status(500).send('error when deleting data!!!')
         console.log('error when deleting data!!!')
     }
 })
