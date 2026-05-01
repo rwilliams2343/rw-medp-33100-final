@@ -84,6 +84,7 @@ router.put('/', async function(req, res){
                     //new Timestamp({ t: Math.floor(Date.now() / 1000), i: 0 })
                 }}
             )
+        res.send('entry updated!')
         //console.log(test)
     } catch (error) {
         res.status(500).send('error when updating!!!')
