@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function updateEntry(info) {
-        fetch('/entries', {
+       await fetch('/entries', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
